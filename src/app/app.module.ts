@@ -6,6 +6,10 @@ import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { IAppState, rootReducer } from './store';
 import { AppComponent } from './app.component';
 import { INITIAL_STATE } from './store';
+
+import { InMemHeroService }     from './MockHero';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +18,8 @@ import { INITIAL_STATE } from './store';
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgReduxModule
+    NgReduxModule,
+    InMemoryWebApiModule.forRoot(InMemHeroService, { delay: 1500 }),
   ],
   providers: [],
   bootstrap: [AppComponent]

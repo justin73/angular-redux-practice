@@ -23,10 +23,15 @@ export class AppComponent implements OnInit {
   constructor(private ngRedux:NgRedux<IAppState>, private heroService: HeroService) {
 
   }
-  getHeroes(): void {
+  getHeroes(){
+    // this.heroService.getHeroes().then(heroes => this.heroes = heroes).then(()=>{
+    //   this.ngRedux.dispatch({type:'INITIALIZATION', payload:{title:this.heroes[0].name}});
+    // });
     this.heroService.getHeroes().then(heroes => this.heroes = heroes).then(()=>{
-      this.ngRedux.dispatch({type:'INITIALIZATION', payload:{title:this.heroes[0].name}});
-    });
+      console.log(this.heroes);
+    })
+    //console.log(this.heroService.getHeroes().then(heroes => this.heroes = heroes));
+    // return this.heroService.getHeroes();
   }
   ngOnInit(): void {
     this.getHeroes();

@@ -24,8 +24,8 @@ export const INITIAL_STATE:IAppState = {
 export function rootReducer( state:IAppState, action):IAppState {
     switch(action.type){
         // case INCREMENT: return {counter: state.counter+1, messaging:{ newMessages:state.messaging.newMessages+1}};
-        case 'INITIALIZATION':
-            return tassign(state, {counter: 0, messaging:{company_name: action.payload.company_name}})
+        // case 'INITIALIZATION':
+        //     return tassign(state, {counter: 0, messaging:{company_name: action.payload.company_name}})
         case INCREMENT: 
             return tassign(state, {counter: state.counter+1, messaging:{company_name: action.payload.title}})
     }
